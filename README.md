@@ -1,7 +1,8 @@
 # Fridge Friend
 Created by: Kara Wolley, Saloni Sharma, Patrick Conley
+<hr>
 
-![alt Main Page Image](Pictures/MainPage.png)
+![alt Main Page Image](Images/MainPage.png)
 
 <hr>
 
@@ -9,7 +10,7 @@ Created by: Kara Wolley, Saloni Sharma, Patrick Conley
 
 App: [Source Code](https://github.com/s-saloni/FridgeFriend/tree/master/HerokuApp) and [Demo](https://fridge--friend.herokuapp.com/)
 
-Testing: [Recipes](https://github.com/s-saloni/FridgeFriend/blob/master/Match%20Ingredients%20to%20Recipes/MatchRecipes_Test.py), [Pantry](https://github.com/s-saloni/FridgeFriend/blob/master/Inventory/pantry_test.py), [User Acceptance Testing](https://github.com/s-saloni/FridgeFriend/blob/master/TESTING.md)
+Testing: [Recipes](https://github.com/s-saloni/FridgeFriend/blob/master/Match%20Ingredients%20to%20Recipes/MatchRecipes_Test.py), [Pantry](https://github.com/s-saloni/FridgeFriend/blob/master/Inventory/pantry_test.py), [User Acceptance Testing](https://github.com/s-saloni/Fridge-Friend/blob/master/TESTING.md)
 
 Presentation Materials: [Slides](https://docs.google.com/presentation/d/1RHDGq7ogDPU8POB_Kty0tTg1hHZtAHaKqQQC5kaXBNE/edit?usp=sharing)
 
