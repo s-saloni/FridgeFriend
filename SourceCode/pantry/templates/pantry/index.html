@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pantry list</title>
+{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'pantry/style.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'pantry/responsive_styles.css' %}"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>  
+</head>
+<body>
+	<header>
+		<!--Logo and home button-->
+		<div class="header">
+			<div class="header_inner">
+				<a href="{%url 'main' %}">
+					<img class="header_logo" src="{% static 'recipes%20images/bunnywithcarrot.svg' %}" >
+					<h1 class = "header_title"> Fridge Friend </h1>
+				</a>
+			</div>
+		<!-- Top navigation bar -->
+		<div class="nav">
+			<ul class="nav_list">
+				<li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+				<li class="nav_item"> <a href="{%url 'shoppinglist'%}">SHOPPING LIST</a> </li>
+				<li class="nav_item"> <a href="{% url 'recipes:index' %}">RECIPES</a> </li>
+				<li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<div>
+			<h2>Pantry</h2>
+		</div>
+		<section id="itemCreation" class="not">
+			<form>
+				<div>
+					<label>Name</label> 
+					<select id="SelectFoodName" name="item">
+					{% for items in key1 %}
+					<option value="{{items}}">"{{items}}"</option>
+					{% endfor %}
+					</select> 
+				</div>
+				<div>
+					<label>Purchase Date</label> 
+					<input type="date" required="required"	name="purchase" />
+				</div>
+				<div>
+					<label>Expiration Date</label> 
+					<input type="date" required="required"	name="expires" />
+				</div>
+				<div>
+					<label>Category</label> 
+					<select name="category">
+						<option value="Fresh">Fresh</option>
+						<option value="Frozen">Frozen</option>
+					</select>
+				</div>
+				<nav>
+					<a href="#" id="saveItem">Add item</a> 
+					<a href="#">Clear item</a>
+				</nav>
+			</form>
+		</section>
+		<section>
+			<table id="tblFood">
+				<colgroup>
+					<col width="30%">
+					<col width="15%">
+					<col width="15%">
+					<col width="10%">
+					<col width="20%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Date Purchased</th>
+						<th>Expires</th>
+						<th>Category</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alfalfa Sprouts</td>
+						<td><time datetime="2013-10-14">2013-10-14</time></td>
+						<td><time datetime="2013-10-15">2013-10-15</time></td>
+						<td>Fresh</td>
+						<td>
+							<nav>
+								<a id="edits" href="#" class="editRow">Edit</a>
+								<a id="edits" href="#" class="completeRow">Complete</a>
+								<a id="edits" href="#" class="deleteRow">Delete</a>
+							</nav>
+						</td>
+					</tr>
+					<tr class="even">
+						<td>Yellow Onions</td>
+						<td><time datetime="2013-10-14">2013-10-14</time></td>
+						<td><time datetime="2013-10-15">2013-10-15</time></td>
+						<td>Fresh</td>
+						<td>
+							<nav>
+								<a id="edits" href="#" class="editRow">Edit</a>
+								<a id="edits" href="#" class="completeRow">Complete</a>
+								<a id="edits" href="#" class="deleteRow">Delete</a>
+							</nav>
+						</td>
+					</tr>
+					<tr>
+						<td>Blueberries</td>
+						<td><time datetime="2013-10-14">2013-10-14</time></td>
+						<td><time datetime="2013-10-15">2013-10-15</time></td>
+						<td>Frozen</td>
+						<td>
+							<nav>
+								<a id="edits" href="#" class="editRow">Edit</a>
+								<a id="edits" href="#" class="completeRow">Complete</a>
+								<a id="edits" href="#" class="deleteRow">Delete</a>
+							</nav>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav>
+				<a href="#" id="btnAddItem">Add food</a>
+			</nav>
+		</section>
+	</main>
+
+	<footer>You have 3 items</footer>
+
+	<!-- Bottom nav bar -->
+<div class="foot">
+        <ul>
+			<li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+        </ul>
+</div>
+</body>
+<script> 
+$(document).ready(function(){
+	$('[required="required"]').prev('label').append('<span>*</span>').children('span').addClass('required');
+
+	$('tbody tr:even').addClass('even');
+
+	$('#btnAddItem').click(function(evt){
+		evt.preventDefault();
+		$('#itemCreation').removeClass('not');
+	});
+	
+	$('tbody tr').click(function(evt){
+		$(evt.target).closest('td').siblings().addBack().toggleClass('rowHighlight');
+	});
+
+	$('#tblFood tbody').on('click', '.deleteRow',function(evt){
+		evt.preventDefault();
+		$(evt.target).parents('tr').remove();
+	});
+
+	$('#saveItem').click(function(evt){
+		evt.preventDefault();
+		var item = $('form').toObject();
+		$('#itemRow').tmpl(item).appendTo($('#tblFood tbody'));
+	});
+});
+
+(function($){
+	$.fn.extend({
+		toObject: function(){
+			var result = {}
+			$.each(this.serializeArray(), function(i,v){
+				result[v.name] = v.value;
+			});
+			return result;
+		},
+		fromObject: function(obj){
+			$.each(this.find(':input'), function(i,v){
+				var name = $(v).attr('name');
+				if (obj[name]){
+					$(v).val(obj[name]);
+				} 
+				else{
+					$(v).val('');
+				}
+			});
+		}
+	});
+}) (jQuery);
+</script>
+
+<script id="itemRow" type="text/x-jQuery-tmpl-min">
+	<tr>
+		<td>${item}</td>
+		<td><time datetime="${purchase}">${purchase}</time></td>
+		<td><time datetime="${expires}">${expires}</time></td>
+		<td>${category}</td>
+		<td>
+			<nav>
+				<a id="edits" href="#" >Edit</a>
+				<a id="edits" href="#" >Complete</a>
+				<a id="edits" href="#" class="deleteRow">Delete</a>
+			</nav>
+		</td>
+	</tr>
+</script>
+</html>
