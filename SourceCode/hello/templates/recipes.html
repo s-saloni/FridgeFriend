@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Recipes page -->
+
+<html>
+	<head> 
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Recipes</title>	
+    <link rel="stylesheet" type="text/css" href="{% static 'recipes.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="static/responsive_styles.css">
+
+    </head>
+  <body>
+    <div class="header">
+      <div class="header_inner">
+        <a href="{%url 'main' %}">
+          <img class="header_logo" src="static/Images/Carrot.png" >
+          <h1 class = "header_title"> Fridge Friend </h1>
+        </a>
+      </div>
+      <!-- Top navigation bar -->
+      <div class="nav">
+        <ul class="nav_list">
+          <li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+          <li class="nav_item"> <a href="{%url 'shoppinglist'%}">SHOPPING LIST</a> </li>
+          <li class="nav_item"> <a href="{% url 'recipes' %}">RECIPES</a> </li>
+          <li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="recipe-main">
+      <h2> Recipes </h2>
+      <div class="recipe-main">
+        <h2> Recipes </h2>
+        <div class="recipes">
+            <div class="r_ttl1">
+                <h2> Salmon </h2>
+            </div>
+            <div class="r1">
+                <img src = "static/Images/Salmon.jpg">
+            </div>
+            <div class="r_ttl2">
+                <h2> Breakfast </h2>
+            </div>
+            <div class="r2">
+                <img src = "static/Images/egg.jpg">
+            </div>
+            <div class="r_ttl3">
+                <h2> Sandwiches </h2>
+            </div>
+            <div class="r3">
+                <img src = "static/Images/sandwich.jpg">
+            </div>
+            <div class="r_ttl4">
+                <h2> Chicken </h2>
+            </div>
+            <div class="r4">
+                <img src="static/Images/chicken.jpg">
+            </div>
+            <div class="r_ttl5">
+                <h2> Soups </h2>
+            </div>
+            <div class="r5">
+                <img src="static/Images/soup.jpg">
+            </div>
+            <div class="r_ttl6">
+                <h2> Tacos </h2>
+            </div>
+            <div class="r6">
+                <img src="static/Images/taco.jpg">
+            </div>
+            <div class="r_ttl7">
+                <h2> Steak </h2>
+            </div>
+            <div class="r7">
+                <img src="static/Images/steak.jpg">
+            </div>
+            <div class="r_ttl8">
+                <h2> Pasta </h2>
+            </div>
+            <div class="r8">
+                <img src="static/Images/pasta.jpg">
+            </div>
+        </div>
+    </div>
+    </div>
+    
+      <!-- Bottom nav bar -->
+    <div class="foot">
+      <nav>
+        <ul>
+          <li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>

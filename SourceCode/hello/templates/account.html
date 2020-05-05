@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'account.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'responsive_styles.css' %}"/>
+</head>
+<body>
+    <!-- Top main navigation bar -->
+    <div class="header">
+        <div class="header_inner">
+            <a href="{%url 'main' %}">
+                <img class="header_logo" src="{% static 'recipes%20images/bunnywithcarrot.svg' %}" >
+                <h1 class = "header_title"> Fridge Friend </h1>
+            </a>
+        </div>
+        <!-- Top navigation bar -->
+        <div class="nav">
+            <ul class="nav_list">
+                <li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+                <li class="nav_item"> <a href="{%url 'shoppinglist'%}">SHOPPING LIST</a> </li>
+                <li class="nav_item"> <a href="{% url 'recipes:index' %}">RECIPES</a> </li>
+                <li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="account_main">
+        <h2>Account</h2>
+        <h3> Oops, it looks like you don't have an account yet.</h3>
+        <p> Create One Here: </p>
+        <form action="/form-data" method="post">
+            <ul>
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="user_name">
+                </li>
+                <li>
+                    <label for="mail">E-mail:</label>
+                    <input type="email" id="mail" name="user_mail">
+                </li>
+                <li>
+                    <label for="msg">Password:</label>
+                    <textarea id="msg" name="user_message"></textarea>
+                </li>
+                <li class = "form-btn">
+                    <button class="send_btn" type="submit"> Create Account </button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+<!-- Bottom nav bar -->
+<div class="foot">
+    <nav>
+        <ul>
+			<li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+        </ul>
+    </nav>
+</div>
+
+
+</body>
+</html>

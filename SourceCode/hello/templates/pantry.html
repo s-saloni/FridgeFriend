@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- Pantry page
+PLEASE SEE EXTERNAL SOURCE PANTRY PAGE AT ...pantry/templates/pantry.html  -->
+
+<html>
+  <head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Browser tab title -->
+    <title>Pantry</title>
+    <!-- External css file -->		
+    <link rel="stylesheet" type="text/css" href="{% static 'pantry.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="static/responsive_styles.css">
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="header_inner">
+        <a href="{%url 'main' %}">
+          <img class="header_logo" src="static/Images/Carrot.png" >
+          <h1 class = "header_title"> Fridge Friend </h1>
+        </a>
+      </div>
+      <!-- Top navigation bar -->
+      <div class="nav">
+        <ul class="nav_list">
+          <li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+          <li class="nav_item"> <a href="{%url 'shoppinglist'%}">SHOPPING LIST</a> </li>
+          <li class="nav_item"> <a href="{% url 'recipes' %}">RECIPES</a> </li>
+          <li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+        </ul>
+      </div>
+    </div>
+
+      This is the pantry.
+
+          <!-- Bottom nav bar -->
+    <div class="foot">
+      <nav>
+        <ul>
+          <li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+
+</html>

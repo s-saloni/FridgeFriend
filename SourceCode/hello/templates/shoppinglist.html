@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Shopping List Page -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Browser tab title -->
+    <title>Pantry</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- External css file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'shoppinglist.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'responsive_styles.css' %}"/>
+</head>
+
+<body>
+    <!-- Top main navigation bar -->
+    <div class="header">
+        <div class="header_inner">
+            <a href="{%url 'main' %}">
+                <img class="header_logo" src="{% static 'recipes%20images/bunnywithcarrot.svg' %}" >
+                <h1 class = "header_title"> Fridge Friend </h1>
+            </a>
+        </div>
+        <!-- Top navigation bar -->
+        <div class="nav">
+            <ul class="nav_list">
+                <li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+                <li class="nav_item"> <a href="{%url 'shoppinglist'%}">SHOPPING LIST</a> </li>
+                <li class="nav_item"> <a href="{% url 'recipes:index' %}">RECIPES</a> </li>
+                <li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="shopping-cart">
+        <!-- Title -->
+        <div class="title">
+            Shopping Bag
+        </div>
+
+        <!-- Product #1 -->
+        <div class="item">
+            <div class="buttons">
+                <span class="delete-btn"></span>
+                <span class="like-btn"></span>
+            </div>
+
+            <div class="image">
+                <img src="https://img.icons8.com/emoji/48/000000/avocado-emoji.png" alt="avo" />
+            </div>
+
+            <div class="description">
+                <span>Avocados</span>
+            </div>
+
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                    <img src="https://img.icons8.com/pastel-glyph/64/000000/plus.png" alt="plus"/>
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                    <img src="https://img.icons8.com/pastel-glyph/64/000000/minus.png" alt="minus"/>
+                </button>
+            </div>
+
+            <div class="total-price">$2.50</div>
+        </div>
+
+        <!-- Product #2 -->
+        <div class="item">
+            <div class="buttons">
+                <span class="delete-btn"></span>
+                <span class="like-btn"></span>
+            </div>
+
+            <div class="image">
+                <img src="https://img.icons8.com/color/48/000000/tomato.png" alt="tom"/>
+            </div>
+
+            <div class="description">
+                <span>Tomatoes</span>
+            </div>
+
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                    <img src="https://img.icons8.com/pastel-glyph/64/000000/plus.png" alt="plus"/>
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                    <img src="https://img.icons8.com/pastel-glyph/64/000000/minus.png" alt="minus"/>
+                </button>
+            </div>
+
+            <div class="total-price">$1.70</div>
+        </div>
+
+        <!-- Product #3 -->
+        <div class="item">
+            <div class="buttons">
+                <span class="delete-btn"></span>
+                <span class="like-btn"></span>
+            </div>
+
+            <div class="image">
+                <img src="https://img.icons8.com/cute-clipart/64/000000/ice-cream-cone.png" alt="ice cream"/>
+            </div>
+
+            <div class="description">
+                <span>Ice Cream</span>
+            </div>
+
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                    <img src="https://img.icons8.com/pastel-glyph/64/000000/plus.png" alt="plus"/>
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                    <img src="https://img.icons8.com/pastel-glyph/64/000000/minus.png" alt="minus"/>
+                </button>
+            </div>
+
+            <div class="total-price">$3.49</div>
+        </div>
+    </div>
+
+		<!-- Bottom nav bar -->
+		<div class="foot">
+			<nav>
+				<ul>
+					<li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+				</ul>
+			</nav>
+        </div>
+        <script>
+            $('.minus-btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $input = $this.closest('div').find('input');
+                var value = parseInt($input.val());
+                if (value > 1) {
+                    value = value - 1;
+                } else {
+                    value = 0;
+                }
+                $input.val(value);
+            });
+        
+            $('.plus-btn').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $input = $this.closest('div').find('input');
+                var value = parseInt($input.val());
+                if (value < 100) {
+                    value = value + 1;
+                } else {
+                    value =100;
+                }
+                $input.val(value);
+            });
+        </script>
+
+</body>
+
+</html>

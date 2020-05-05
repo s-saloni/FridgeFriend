@@ -1,0 +1,81 @@
+/*recipes*/
+img {
+    max-height: 300px;
+}
+h2 {
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+}
+.recipes {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 50px 300px 50px 300px 50px 300px 50px 300px;
+    grid-template-areas:
+    "r_ttl1 r_ttl2"
+    "r1 r2"
+    "r_ttl3 r_ttl4"
+    "r3 r4"
+    "r_ttl5 r_ttl6"
+    "r5 r6"
+    "r_ttl7 r_ttl8"
+    "r7 r8";
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 100%;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+.r1 .r2 .r3 .r4 .r5 .r6 .r7 .r8 .r_ttl1 .r_ttl2 .r_ttl3 .r_ttl4
+.r_ttl5 .r_ttl6 .r_ttl7 .r_ttl8 {
+    display: grid;
+    padding: 0;
+}
+.r1 {
+    grid-area: r1;
+}
+.r2 {
+    grid-area: r2;
+}
+.r3 {
+    grid-area: r3;
+}
+.r4 {
+    grid-area: r4;
+}
+.r5 {
+    grid-area: r5;
+}
+.r6 {
+    grid-area: r6;
+}
+.r7 {
+    grid-area: r7;
+}
+.r8 {
+    grid-area: r8;
+}
+.r_ttl1 {
+    grid-area: r_ttl1;
+}
+.r_ttl2 {
+    grid-area: r_ttl2;
+}
+.r_ttl3 {
+    grid-area: r_ttl3;
+}
+.r_ttl4{
+    grid-area: r_ttl4;
+}
+.r_ttl5 {
+    grid-area: r_ttl5;
+}
+.r_ttl6 {
+    grid-area: r_ttl6;
+}
+.r_ttl7 {
+    grid-area: r_ttl7;
+}
+.r_ttl8 {
+    grid-area: r_ttl8;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!-- Fridge Friend - Web App -->
+
+<html>
+	<head> 
+		<meta charset="utf-8"> 
+		<!-- meta tag below for responsive sites -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Browser tab title -->
+		<title>Fridge Friend</title>
+		<!-- External css file -->		
+		<link rel="stylesheet" type="text/css" href="static/main.css">
+		<link rel="stylesheet" type="text/css" href="static/responsive_styles.css">
+	</head>
+
+
+	<body>
+		<div class="header">
+			<div class="header_inner">
+				<a href="{%url 'main' %}">
+					<img class="header_logo" src="static/Images/LogoCarrotOnly.png" >
+					<h1 class = "header_title"> Fridge Friend </h1>
+				</a>
+			</div>
+		<!-- Top navigation bar -->
+		<div class="nav">
+			<ul class="nav_list">
+				<li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+				<li class="nav_item"> <a href="{% url 'recipes:index' %}">RECIPES</a> </li>
+				<li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+			</ul>
+		</div>
+  
+ 	 	<!-- Main page content -->
+  		<div class="main">
+			<div class="fridge-link">
+				<a href="{% url 'pantry:index' %}">
+					<button type="button" class="btn">Check Fridge</button> </a>
+			</div>
+			<div class="fridge-image">
+				<object data="static/Images/Fridge2.svg"  type="image/svg+xml">
+				</object>
+			</div>
+			<div class="shop-link">
+				<a href="{% url 'shoppinglist' %}">
+					<button type="button" class="btn">Make Shopping List</button></a>
+			</div>
+			<div class="shop-image">
+				<object data="static/Images/grocerybag2.svg"  type="image/svg+xml" style="width:150px;">
+				</object>
+				<!--
+					Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+					 from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+				-->
+			</div>
+			<div class="recipe-link">
+				<a href="{% url 'recipes:index' %}">
+					<button type="button" class="btn">Find Recipes</button></a>
+			</div>
+			<div class="recipe-image">
+				<object data="static/Images/greenbook.svg"  type="image/svg+xml" style="width:150px;">
+				</object>
+				<!--
+					Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> 
+					from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+				-->
+			</div>
+		</div>
+		
+		<hr style="margin-top:70px;box-shadow: 0 2px 2px #6e6e6e;width: 100%;">
+
+		<!-- Bottom nav bar -->
+		<div class="foot">
+			<nav>
+				<ul>
+					<li class="foot-item"> <a href="{% url 'pantry:index' %}">Pantry</a> </li>
+					<li class="foot-item"> <a href="{% url 'recipes:index' %}">Recipes</a> </li>
+					<li class="foot-item"> <a href="{% url 'account' %}">Account</a> </li>
+					<li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+				</ul>
+			</nav>
+		</div>
+
+	</body>
+
+<html>
