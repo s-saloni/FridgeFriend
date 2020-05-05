@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- Recipes page -->
+
+<html>
+
+	<head> 
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Browser tab title -->
+		<title>Recipes</title>
+		<!-- External css files -->		
+		<link rel="stylesheet" type="text/css" href="{% static 'recipes/recipes.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'recipes/responsive_styles.css' %}"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>  
+	</head>
+	
+    <body>
+		<!--Logo and home button-->
+		<div class="header">
+			<div class="header_inner">
+				<a href="{%url 'main' %}">
+					<img class="header_logo" src="{% static 'recipes%20images/bunnywithcarrot.svg' %}" >
+					<h1 class = "header_title"> Fridge Friend </h1>
+				</a>
+			</div>
+		<!-- Top navigation bar -->
+		<div class="nav">
+			<ul class="nav_list">
+				<li class="nav_item"> <a href="{%url 'pantry:index'%}">PANTRY</a> </li>
+				<li class="nav_item"> <a href="{%url 'shoppinglist'%}">SHOPPING LIST</a> </li>
+				<li class="nav_item"> <a href="{% url 'recipes:index' %}">RECIPES</a> </li>
+				<li class="nav_item"> <a href="{% url 'account' %}">ACCOUNT</a> </li>
+			</ul>
+		</div>
+
+		<!--Main-->
+		<h2>Recipes</h2> <!--Header title-->
+		<h3 style="text-align: center;">Search for recipes with your ingredient here.</h3>
+		<br>
+		<div class="recipes_main">
+
+			<form method="POST" action="/recipes-result/">
+				{% csrf_token %}
+				<input type="text" name="ingr" class="ingredients_input" 
+				placeholder="ingredient name..." maxlength="15"  
+					value={{request.post.ingr}}>
+				{{request.post.first}}
+				<button type="submit" value="Find Recipes" class="search_btn" onclick="insert()">
+					Search Recipes</button>
+			</form>
+			<br>
+			<div style="margin-left:30%; text-align:left;color: dimgray;"> Showing results for: {{ingredient}} </div>
+			<br>
+			<div id="display" class="recipes_list">
+				<!-- <h3>Results: </h3> -->
+				<div class="results">
+					{% for r, r_url in recipes %}
+						<br>
+						{{r}} 
+						<a href={{r_url}} title="View recipe" style="color: rgb(51, 169, 224);"> - Recipe</a>
+						<p style="margin:0; color: dimgray; font-size: 10px;">{{r_url}}</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	
+
+		<script src="{% static 'recipes/recipes.js' %}" type="text/javascript"></script>
+		
+		<div class="foot">
+			<nav>
+				<ul>
+					<!--
+					<li class="foot-item"> <a href="{% url 'pantry:index' %}">Pantry</a> </li>
+					<li class="foot-item"> <a href="{% url 'recipes:index' %}">Recipes</a> </li>
+					<li class="foot-item"> <a href="{% url 'account' %}">Account</a> </li>
+					-->
+					<li class="foot-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+				</ul>
+			</nav>
+		</div>
+    </body>
+
+	</html>
+	

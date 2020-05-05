@@ -1,0 +1,256 @@
+/*Recipes page*/
+/*Default formatting for body*/
+* {
+	box-sizing: border-box;
+}
+body, html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Ubuntu', Helvetica, sans-serif;
+}
+/*Default max widths for items*/
+img, embed, object, video {
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*Default button values*/
+button {
+	min-height: 48px;
+	min-width: 48px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-family: 'Ubuntu', Helvetica, sans-serif;
+}
+
+/*
+# Header
+ */
+.header {
+	width: 100%;
+	/*box-shadow: 0 2px 2px #6e6e6e;*/
+	display: inline-block;
+	min-height: 52px;
+	transition: min-height;
+	padding: 1vh;
+}
+
+.header_inner {
+	/*width: 100%;*/
+	display: inline-block;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header_logo {
+	height: 96px;
+	/*margin-right: 1em;*/
+	margin-left: 1em;
+	vertical-align: center;
+	margin-top: 12px;
+}
+
+.header_title {
+	display: inline-block;
+	margin: 0.5em 0.25em;
+	font-weight: 200;
+	font-size: 2.5em;
+	color: #006837;
+}
+
+/*
+# Nav bar
+ */
+.nav {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav_list {
+	display: flex;
+	padding: 0;
+	margin: 0;
+}
+
+.nav_item {
+	box-sizing: border-box;
+	text-align: center;
+	line-height: 24px;
+	padding: 24px;
+	text-transform: uppercase;
+}
+  /*Links for main nav bar*/
+.nav_item a {
+	color: #FF8C2E;
+	text-decoration: none;
+	padding: 1.5em; /*1.5x font size*/
+}
+
+.nav_item a:hover {
+	background-color: rgb(255, 161, 98);
+	color: rgb(255, 255, 255);
+}
+
+.nav_item a.focus {
+	background-color: #4CAF50;
+	color: white;
+}
+
+/*
+# Recipes Main
+ */
+ /*
+.recipes_main {
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: 30vw 250px;
+	grid-template-areas:
+			"ingredients_input ingredient_list"
+			"search_btn recipes_result";
+	grid-gap: 10px;
+	justify-items: center; /* row alignment*/ /*
+	align-items: center; /* column alignment*/ /*
+	justify-content: center;
+	border:1px solid;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+*/
+
+.recipes_main{
+	justify-items: center; /* row alignment*/ 
+	align-items: center; /* column alignment*/ 
+	justify-content: center;
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+.ingredients_input {
+	/*grid-area: ingredients_input;*/
+	padding: 0 0 0 10%; /*size of input box*/
+	margin: 0;
+	color: black; /*text in input box*/
+	border: 2px solid;
+	border-color: #0099ff;
+	border-radius: 10px;
+	padding: 1em;
+	font-size: 1em;
+	
+}
+.ingredients_list{
+	/*grid-area: ingredients_list;*/
+	padding: 1em;
+}
+
+.recipes_result{
+	/*grid-area: recipes_result;*/
+	margin: 0;
+	font-size: 1em;
+	text-align: left;
+}
+
+.search_btn {
+	grid-area: search_btn;
+	background-color: #ffffff;
+	color: #4CAF50;
+	border: 2px solid #4CAF50;
+	border-radius: 10px;
+	font-size: 1em;
+	cursor: pointer;
+	height: 50px;
+	font-weight: 200;
+}
+
+.search_btn:hover {
+	box-shadow: #6e6e6e;
+	color: #ffffff;
+	background-color: #4CAF50;
+	font-weight: 400;
+}
+
+*:focus{
+	outline: none;
+}
+
+.recipes_list{
+	border: 1px solid dimgray;
+	border-radius: 10px;
+	margin-left: 30%;
+	margin-right: 30%;
+	height: 40vh;
+}
+.results{
+	text-align: left;
+	margin-left: 10%;
+}
+a.results:visited{
+	color: #0099ff;
+}
+/*
+# Text Formatting
+ */
+h1{
+	color: #0099ff;
+	font-family: Ubuntu, Helvetica, sans-serif;
+	font-size:3vw;
+	text-align: center;
+}
+
+h2 {
+	color: #000000;
+	font-family: Ubuntu, Helvetica, sans-serif;
+	font-size:3vw;
+	text-align: center;
+	text-wrap: none;
+}
+
+/*
+# Footer
+ */
+.foot{
+	position: fixed;
+	background-color: #FF8C2E;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding-top: 0.3em;
+}
+
+.foot-item {
+	list-style-type: none;
+	display: inline-block;
+	height: 100%;
+	margin: 0 10px 0 10px;
+	font-size: 1.2em;
+	font-family: 'Ubuntu', Helvetica, sans-serif;
+	overflow: hidden;
+	padding: 0;
+}
+/*Links for main nav bar*/
+.foot-item a {
+	color: #ffffff;
+	text-decoration: none;
+	padding: 1.5em;
+}
+
+.foot-item a:hover {
+	color: #FF8C2E;
+	background-color: rgb(255, 255, 255);
+}
+
+.foot-item a.focus {
+	background-color: #4CAF50;
+	color: white;
+}
